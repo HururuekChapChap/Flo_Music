@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Splash View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController storyboardIdentifier="SplashView" id="BYZ-38-t0r" customClass="SplashViewController" customModule="FLO_Music_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="FLO_Splash" translatesAutoresizingMaskIntoConstraints="NO" id="2yC-JQ-XIf">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="2yC-JQ-XIf" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="4En-SL-Y67"/>
+                            <constraint firstItem="2yC-JQ-XIf" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="UrG-0J-BXF"/>
+                            <constraint firstAttribute="bottom" secondItem="2yC-JQ-XIf" secondAttribute="bottom" id="W7e-Gk-tWO"/>
+                            <constraint firstItem="2yC-JQ-XIf" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="fct-PF-mUI"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-197.10144927536234" y="77.678571428571431"/>
+        </scene>
+        <!--Player View Controller-->
+        <scene sceneID="Iba-IQ-h0Y">
+            <objects>
+                <viewController storyboardIdentifier="PlayerViewController" id="eO2-FW-Zrp" customClass="PlayerViewController" customModule="FLO_Music_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5Cf-eF-757">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MLt-Wh-B8i">
+                                <rect key="frame" x="30" y="94" width="354" height="358.5"/>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="hgw-hS-7ZJ"/>
+                        <color key="backgroundColor" red="0.2487687767" green="0.22351479530000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="MLt-Wh-B8i" firstAttribute="height" secondItem="5Cf-eF-757" secondAttribute="height" multiplier="0.4" id="Akh-hY-A3e"/>
+                            <constraint firstItem="MLt-Wh-B8i" firstAttribute="top" secondItem="hgw-hS-7ZJ" secondAttribute="top" constant="50" id="IBG-BH-NTW"/>
+                            <constraint firstItem="hgw-hS-7ZJ" firstAttribute="trailing" secondItem="MLt-Wh-B8i" secondAttribute="trailing" constant="30" id="Igl-fT-FHo"/>
+                            <constraint firstItem="MLt-Wh-B8i" firstAttribute="leading" secondItem="hgw-hS-7ZJ" secondAttribute="leading" constant="30" id="mx2-Tk-Mbg"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="ablumImage" destination="MLt-Wh-B8i" id="gs6-Gy-JSB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9Yl-ST-1yj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="763.768115942029" y="77.678571428571431"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="FLO_Splash" width="621" height="1344"/>
+    </resources>
+</document>
