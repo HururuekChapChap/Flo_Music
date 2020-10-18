@@ -25,7 +25,7 @@ struct musicInfo : Codable {
     
 }
 
-class SplashViewModel {
+class ApiViewModel {
     
     public func returnURL(url : String) -> URL?{
         

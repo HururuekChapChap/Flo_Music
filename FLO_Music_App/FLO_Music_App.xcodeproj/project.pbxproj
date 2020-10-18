@@ -14,7 +14,9 @@
 		08D30105253B1A7500071930 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 08D30103253B1A7500071930 /* LaunchScreen.storyboard */; };
 		08D30111253B1FDA00071930 /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D30110253B1FDA00071930 /* PlayerViewController.swift */; };
 		08D30115253B203200071930 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D30114253B203200071930 /* SplashViewController.swift */; };
-		08D3011A253B27E100071930 /* SplashViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D30119253B27E100071930 /* SplashViewModel.swift */; };
+		08D3011A253B27E100071930 /* ApiViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D30119253B27E100071930 /* ApiViewModel.swift */; };
+		08D30128253B5E3800071930 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D30127253B5E3800071930 /* UIView+Extension.swift */; };
+		08D30130253C440800071930 /* PlayerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D3012F253C440800071930 /* PlayerViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,7 +29,9 @@
 		08D30106253B1A7500071930 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		08D30110253B1FDA00071930 /* PlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
 		08D30114253B203200071930 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
-		08D30119253B27E100071930 /* SplashViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewModel.swift; sourceTree = "<group>"; };
+		08D30119253B27E100071930 /* ApiViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiViewModel.swift; sourceTree = "<group>"; };
+		08D30127253B5E3800071930 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		08D3012F253C440800071930 /* PlayerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +64,7 @@
 		08D300F7253B1A7300071930 /* FLO_Music_App */ = {
 			isa = PBXGroup;
 			children = (
+				08D3011E253B3EA500071930 /* Views */,
 				08D30118253B274E00071930 /* Model */,
 				08D30117253B274400071930 /* ViewModel */,
 				08D3010F253B1FC100071930 /* ViewControllers */,
@@ -85,7 +90,8 @@
 		08D30117253B274400071930 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				08D30119253B27E100071930 /* SplashViewModel.swift */,
+				08D30119253B27E100071930 /* ApiViewModel.swift */,
+				08D3012F253C440800071930 /* PlayerViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -95,6 +101,14 @@
 			children = (
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		08D3011E253B3EA500071930 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				08D30127253B5E3800071930 /* UIView+Extension.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -167,10 +181,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				08D3011A253B27E100071930 /* SplashViewModel.swift in Sources */,
+				08D30128253B5E3800071930 /* UIView+Extension.swift in Sources */,
+				08D3011A253B27E100071930 /* ApiViewModel.swift in Sources */,
 				08D30111253B1FDA00071930 /* PlayerViewController.swift in Sources */,
 				08D300F9253B1A7300071930 /* AppDelegate.swift in Sources */,
 				08D300FB253B1A7300071930 /* SceneDelegate.swift in Sources */,
+				08D30130253C440800071930 /* PlayerViewModel.swift in Sources */,
 				08D30115253B203200071930 /* SplashViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
