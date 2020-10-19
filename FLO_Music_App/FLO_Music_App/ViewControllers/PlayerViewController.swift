@@ -19,6 +19,8 @@ class PlayerViewController: UIViewController {
     
     @IBOutlet weak var playButton: UIButton!
     
+    @IBOutlet weak var seekBar: UISlider!
+    
     let splashViewModel = ApiViewModel()
     let playerViewModel = PlayerViewModel.singleton
     
@@ -32,6 +34,12 @@ class PlayerViewController: UIViewController {
             prepareToPlay()
         }
     }
+    
+    var seekingPressed : Bool = false
+    
+    @IBOutlet weak var currentTimeLabel: UILabel!
+    @IBOutlet weak var endTimeLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -55,6 +63,15 @@ class PlayerViewController: UIViewController {
             print("URL is wrong")
         }
         
+        
+        let timeSeek = CMTime(seconds: 1, preferredTimescale: 1000) // 0.1초
+        
+        let _ = playerViewModel.player.addPeriodicTimeObserver(forInterval: timeSeek, queue: .main) { (currentTime) in
+            let time = CMTime(seconds: currentTime.seconds, preferredTimescale: currentTime.timescale).seconds
+            self.updateSlider(time: time)
+        }
+        
+        
     }
     
     override func viewDidLayoutSubviews() {
@@ -70,7 +87,7 @@ class PlayerViewController: UIViewController {
     
     
     @IBAction func playerBtn(_ sender: UIButton) {
-                
+ 
         if playerViewModel.isPlaying() {
             changePlayBtnPlause()
             playerViewModel.plause()
@@ -80,6 +97,30 @@ class PlayerViewController: UIViewController {
             playerViewModel.play()
         }
         
+    }
+    
+    @IBAction func seekBarPressed(_ sender: UISlider) {
+        
+        seekingPressed = true
+        
+    }
+    
+    @IBAction func seekBarOut(_ sender: UISlider) {
+        
+        
+        
+        let second = sender.value * Float( musicData!.duration )
+        let cmtime = CMTime(seconds: Double(second), preferredTimescale: 1000)
+            
+        playerViewModel.seek(time: cmtime) { (_) in
+            self.seekingPressed = false
+        }
+        
+        
+    }
+    
+    @IBAction func seekBarAction(_ sender: UISlider) {
+
     }
     
 }
@@ -115,6 +156,7 @@ extension PlayerViewController {
         
         if #available(iOS 13.0, *){
             
+            //Configuration Point Size를 지정해줄 수 있는 함수 이다.
             let configuration = UIImage.SymbolConfiguration(pointSize: 50)
             let image = UIImage(systemName: "pause.fill", withConfiguration: configuration)
             playButton.setImage(image, for: .normal)
@@ -125,7 +167,25 @@ extension PlayerViewController {
             playButton.setImage(UIImage(named: "pause.png"), for: .selected)
             
         }
+ 
+    }
+    
+    func updateSlider(time : Double){
         
+        let currentTime = Int(time)
+                
+        if !seekingPressed{
+        
+        seekBar.value = Float( Float(currentTime) / Float(musicData!.duration) )
+        
+        if seekBar.value == 1 {
+            playerViewModel.seek(time: CMTime.zero){_ in }
+            changePlayBtnPlause()
+            playerViewModel.plause()
+            
+        }
+            
+        }
         
     }
     
@@ -181,7 +241,6 @@ extension PlayerViewController {
         
 //        print(playerViewModel.player.currentItem)
         
-
     }
     
     

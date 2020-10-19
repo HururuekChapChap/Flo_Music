@@ -37,5 +37,13 @@ class PlayerViewModel {
         player.replaceCurrentItem(with: item)
     }
     
+    func seek(time : CMTime , completionHandler : @escaping(Bool) -> ()){
+
+//            self.player.seek(to: time)
+        self.player.seek(to: time, completionHandler: completionHandler)
+            
+    }
+    
+    
     
 }
