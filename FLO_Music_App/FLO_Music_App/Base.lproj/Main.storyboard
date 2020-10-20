@@ -5,6 +5,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -77,12 +78,12 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="F5M-Ho-MnR">
-                                <rect key="frame" x="20" y="492.5" width="108.5" height="87"/>
+                                <rect key="frame" x="20" y="482.5" width="108.5" height="87"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Song Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xEt-wq-zQ9">
                                         <rect key="frame" x="0.0" y="0.0" width="108.5" height="41"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="textColor" systemColor="systemOrangeColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="FDq-4D-Awi">
@@ -141,12 +142,19 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="연주" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vLH-yt-ghh">
+                                <rect key="frame" x="188" y="630" width="38.5" height="26.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="22"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="hgw-hS-7ZJ"/>
                         <color key="backgroundColor" red="0.2487687767" green="0.22351479530000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="SWb-R2-Bvw" firstAttribute="leading" relation="lessThanOrEqual" secondItem="rBv-iW-7uC" secondAttribute="trailing" constant="110.5" id="1Pu-rB-Gpc"/>
                             <constraint firstItem="F5M-Ho-MnR" firstAttribute="leading" secondItem="hgw-hS-7ZJ" secondAttribute="leading" constant="20" id="1ZN-lY-Hzn"/>
+                            <constraint firstItem="vLH-yt-ghh" firstAttribute="centerX" secondItem="hgw-hS-7ZJ" secondAttribute="centerX" id="9wd-vF-A6F"/>
                             <constraint firstItem="rBv-iW-7uC" firstAttribute="top" secondItem="Tpk-gA-AdT" secondAttribute="bottom" constant="20" id="Cs1-h6-BWP"/>
                             <constraint firstItem="g9u-6b-Pb2" firstAttribute="height" secondItem="5Cf-eF-757" secondAttribute="height" multiplier="0.4" id="DLk-yC-Ucm"/>
                             <constraint firstItem="Tpk-gA-AdT" firstAttribute="trailing" secondItem="MLt-Wh-B8i" secondAttribute="trailing" id="I81-af-oom"/>
@@ -157,10 +165,11 @@
                             <constraint firstItem="hgw-hS-7ZJ" firstAttribute="bottom" secondItem="rBv-iW-7uC" secondAttribute="bottom" constant="50" id="a70-jm-a5Y"/>
                             <constraint firstItem="rBv-iW-7uC" firstAttribute="centerX" secondItem="hgw-hS-7ZJ" secondAttribute="centerX" id="af5-00-5P5"/>
                             <constraint firstItem="6Ky-v2-saF" firstAttribute="leading" secondItem="Tpk-gA-AdT" secondAttribute="leading" id="gd9-IP-MxW"/>
+                            <constraint firstItem="vLH-yt-ghh" firstAttribute="centerY" secondItem="hgw-hS-7ZJ" secondAttribute="centerY" multiplier="1.42" id="hsC-h1-keM"/>
                             <constraint firstItem="rBv-iW-7uC" firstAttribute="leading" relation="lessThanOrEqual" secondItem="6Ky-v2-saF" secondAttribute="trailing" constant="110.5" id="iXC-cq-1WM"/>
                             <constraint firstItem="6Ky-v2-saF" firstAttribute="top" secondItem="Tpk-gA-AdT" secondAttribute="bottom" id="oKn-Oy-crT"/>
                             <constraint firstItem="hgw-hS-7ZJ" firstAttribute="trailing" secondItem="g9u-6b-Pb2" secondAttribute="trailing" constant="30" id="yTx-JB-NgX"/>
-                            <constraint firstItem="F5M-Ho-MnR" firstAttribute="top" secondItem="MLt-Wh-B8i" secondAttribute="bottom" constant="40" id="yjT-qu-uvc"/>
+                            <constraint firstItem="F5M-Ho-MnR" firstAttribute="top" secondItem="MLt-Wh-B8i" secondAttribute="bottom" constant="30" id="yjT-qu-uvc"/>
                             <constraint firstItem="g9u-6b-Pb2" firstAttribute="top" secondItem="hgw-hS-7ZJ" secondAttribute="top" constant="50" id="zEv-eK-OrG"/>
                         </constraints>
                     </view>
@@ -171,6 +180,7 @@
                         <outlet property="currentTimeLabel" destination="6Ky-v2-saF" id="qwa-sk-Yd8"/>
                         <outlet property="endTimeLabel" destination="SWb-R2-Bvw" id="mLU-FR-Fx6"/>
                         <outlet property="imageContainerView" destination="g9u-6b-Pb2" id="jdI-Lt-3Et"/>
+                        <outlet property="lyricLabel" destination="vLH-yt-ghh" id="P7f-4h-x9b"/>
                         <outlet property="playButton" destination="rBv-iW-7uC" id="0GU-1X-Cit"/>
                         <outlet property="seekBar" destination="Tpk-gA-AdT" id="z42-Ie-WF9"/>
                         <outlet property="songName" destination="xEt-wq-zQ9" id="1Up-4O-2YQ"/>
@@ -184,5 +194,8 @@
     <resources>
         <image name="FLO_Splash" width="621" height="1344"/>
         <image name="play.fill" catalog="system" width="116" height="128"/>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
     </resources>
 </document>

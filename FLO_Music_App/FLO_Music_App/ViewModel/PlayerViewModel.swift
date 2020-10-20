@@ -8,6 +8,7 @@
 import Foundation
 import AVFoundation
 
+//2일차 부터 구현 ~
 class PlayerViewModel {
     
     static let singleton = PlayerViewModel()

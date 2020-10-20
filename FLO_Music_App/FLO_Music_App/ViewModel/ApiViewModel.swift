@@ -25,7 +25,11 @@ struct musicInfo : Codable {
     
 }
 
+//1일차 구현
 class ApiViewModel {
+    
+    //4일차 구현
+    var search : [Int] = []
     
     public func returnURL(url : String) -> URL?{
         
@@ -87,6 +91,93 @@ class ApiViewModel {
         }
         
     }
+    
+    //4일차 구현
+    func returnStringByRex(pattern : String , word : String) -> [String] {
+        
+        do {
+            let regex = try NSRegularExpression(pattern: pattern, options: .caseInsensitive)
+            
+            let result = regex.matches(in: word, options: [], range: NSRange(location: 0, length: word.count))
+            
+            let rexStrings = result.map { (element) -> String in
+                
+                let range = Range(element.range, in: word)!
+                
+                return String(word[range])
+                
+            }
+            
+            return rexStrings
+        } catch let error {
+            print(error.localizedDescription)
+        }
+        
+        return []
+        
+    }
+    
+    //4일차 구현
+    func getlyrics(lyrics : String , completeHandler : @escaping([Int: String])->()){
+        
+        let list = lyrics.components(separatedBy: "\n")
+        
+        var dict : [Int : String] = [:]
+        
+//        var dict : [String : String] = [:]
+        
+        DispatchQueue.global().async {
+            
+            for element in list{
+                
+                let time = self.returnStringByRex(pattern: "[0-9][0-9]:[0-9][0-9]", word: element).first!
+                let word = element.components(separatedBy: "]")[1]
+                
+                let minute = Int(time.components(separatedBy: ":")[0])!
+                let second = Int(time.components(separatedBy: ":")[1])!
+                
+                let totalTime = minute * 60 + second
+                dict[totalTime] = word
+                self.search.append(totalTime)
+//                dict[time] = word
+                
+            }
+            
+            completeHandler(dict)
+//            completeHandler(dict)
+            
+        }
+        
+        
+    }
+    
+    //4일차 구현
+    func searchLyrics(time : Int) -> Int{
+        
+        var start = 0
+        var end = search.count - 1
+        
+        while start <= end {
+            
+            let mid = (start + end) / 2
+            
+            if search[mid] < time {
+                start = mid + 1
+            }
+            else if search[mid] == time {
+                return search[mid]
+            }
+            else{
+                end = mid - 1
+            }
+            
+        }
+        
+        return end < 0 ? 0 : search[end]
+        
+    }
+    
+
     
     
     

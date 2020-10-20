@@ -26,17 +26,30 @@ class PlayerViewController: UIViewController {
     
     var itemToplay : AVPlayerItem? = nil
     
+
+    //    var lyrics : [String : String] = ["00:00":"연주"]
+    var lyrics : [Int : String] = [:]
     
+    //1일차 구현
     var musicData : musicInfo? = nil {
         didSet{
             setUIImage()
             setUILabel()
             prepareToPlay()
+            
+            //4일차구현
+            splashViewModel.getlyrics(lyrics: musicData!.lyrics) { (dictionay) in
+                self.lyrics = dictionay
+                self.lyrics[0] = "연주"
+            }
+            //
+
         }
     }
     
     var seekingPressed : Bool = false
     
+    @IBOutlet weak var lyricLabel: UILabel!
     @IBOutlet weak var currentTimeLabel: UILabel!
     @IBOutlet weak var endTimeLabel: UILabel!
     
@@ -44,6 +57,7 @@ class PlayerViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
+        //1일차 구현
         let inputURL = "https://grepp-programmers-challenges.s3.ap-northeast-2.amazonaws.com/2020-flo/song.json"
         if let URL = splashViewModel.returnURL(url: inputURL){
             
@@ -64,6 +78,7 @@ class PlayerViewController: UIViewController {
         }
         
         
+        //3일차 구현
         let timeSeek = CMTime(seconds: 1, preferredTimescale: 1000) // 0.1초
         
         let _ = playerViewModel.player.addPeriodicTimeObserver(forInterval: timeSeek, queue: .main) { (currentTime) in
@@ -74,6 +89,7 @@ class PlayerViewController: UIViewController {
         
     }
     
+    //2일차 구현
     override func viewDidLayoutSubviews() {
             
         if #available(iOS 13.0 , *){}
@@ -86,6 +102,7 @@ class PlayerViewController: UIViewController {
     }
     
     
+    //2일차 구현
     @IBAction func playerBtn(_ sender: UIButton) {
  
         if playerViewModel.isPlaying() {
@@ -99,16 +116,17 @@ class PlayerViewController: UIViewController {
         
     }
     
+    //3일차 구현
     @IBAction func seekBarPressed(_ sender: UISlider) {
         
         seekingPressed = true
         
     }
     
+    //3일차 구현
     @IBAction func seekBarOut(_ sender: UISlider) {
         
-        
-        
+
         let second = sender.value * Float( musicData!.duration )
         let cmtime = CMTime(seconds: Double(second), preferredTimescale: 1000)
             
@@ -127,6 +145,7 @@ class PlayerViewController: UIViewController {
 
 extension PlayerViewController {
     
+    //2일차 구현
     func changePlayBtnPlause(){
                 
         playButton.isSelected  = false
@@ -150,6 +169,7 @@ extension PlayerViewController {
         
     }
     
+    //2일차 구현
     func changePlayBtnPlay(){
         
         playButton.isSelected  = true
@@ -170,13 +190,25 @@ extension PlayerViewController {
  
     }
     
+    //3일차 구현
     func updateSlider(time : Double){
         
         let currentTime = Int(time)
-                
-        if !seekingPressed{
         
+        //4일차 구현
+        let time = splashViewModel.searchLyrics(time: currentTime)
+
+        if let exist = lyrics[time]{
+            lyricLabel.text = exist
+        }
+        //
+        
+        currentTimeLabel.text = String(format: "%02d:%02d", currentTime / 60 , currentTime % 60)
+        
+        if !seekingPressed{
+    
         seekBar.value = Float( Float(currentTime) / Float(musicData!.duration) )
+            
         
         if seekBar.value == 1 {
             playerViewModel.seek(time: CMTime.zero){_ in }
@@ -193,6 +225,7 @@ extension PlayerViewController {
 
 extension PlayerViewController {
     
+    //1일차 구현
     func setUIImage(){
         
         guard let url = splashViewModel.returnURL(url: musicData!.image) else{
@@ -217,6 +250,7 @@ extension PlayerViewController {
         
     }
     
+    //1일차 구현
     func setUILabel(){
         
         DispatchQueue.main.async {
@@ -229,6 +263,7 @@ extension PlayerViewController {
         
     }
     
+    //2일차 구현
     func prepareToPlay(){
         
         guard let url = splashViewModel.returnURL(url: musicData!.file) else{
@@ -241,7 +276,11 @@ extension PlayerViewController {
         
 //        print(playerViewModel.player.currentItem)
         
+        //4일차 구현
+        DispatchQueue.main.async {
+            self.endTimeLabel.text = String(format: "%02d:%02d", self.musicData!.duration / 60 , self.musicData!.duration % 60)
+        }
+        
     }
-    
     
 }
