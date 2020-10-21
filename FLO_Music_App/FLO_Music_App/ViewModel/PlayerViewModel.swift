@@ -38,11 +38,17 @@ class PlayerViewModel {
         player.replaceCurrentItem(with: item)
     }
     
+    //4일차 구현
     func seek(time : CMTime , completionHandler : @escaping(Bool) -> ()){
 
 //            self.player.seek(to: time)
         self.player.seek(to: time, completionHandler: completionHandler)
             
+    }
+    
+    //5일차 구현
+    func addPeriodicTimeObserver(interval: CMTime, queue: DispatchQueue?, using : @escaping (CMTime) -> Void) -> Any{
+        self.player.addPeriodicTimeObserver(forInterval: interval, queue: queue, using: using)
     }
     
     

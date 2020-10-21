@@ -20,14 +20,11 @@ class PlayerViewController: UIViewController {
     @IBOutlet weak var playButton: UIButton!
     
     @IBOutlet weak var seekBar: UISlider!
-    
+        
     let splashViewModel = ApiViewModel()
     let playerViewModel = PlayerViewModel.singleton
     
     var itemToplay : AVPlayerItem? = nil
-    
-
-    //    var lyrics : [String : String] = ["00:00":"연주"]
     var lyrics : [Int : String] = [:]
     
     //1일차 구현
@@ -52,6 +49,9 @@ class PlayerViewController: UIViewController {
     @IBOutlet weak var lyricLabel: UILabel!
     @IBOutlet weak var currentTimeLabel: UILabel!
     @IBOutlet weak var endTimeLabel: UILabel!
+    
+    
+    var testflag : Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -81,13 +81,42 @@ class PlayerViewController: UIViewController {
         //3일차 구현
         let timeSeek = CMTime(seconds: 1, preferredTimescale: 1000) // 0.1초
         
-        let _ = playerViewModel.player.addPeriodicTimeObserver(forInterval: timeSeek, queue: .main) { (currentTime) in
+        //3일차 구현한 것을 5일차에 함수 변형 (수정)
+        let _ = playerViewModel.addPeriodicTimeObserver(interval: timeSeek, queue: .main) { (currentTime) in
             let time = CMTime(seconds: currentTime.seconds, preferredTimescale: currentTime.timescale).seconds
             self.updateSlider(time: time)
+            
         }
-        
+                
         
     }
+    
+    
+    //5일차 구현
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "LyricViewController"{
+            
+            if let vc = segue.destination as? LyricViewController {
+                
+                vc.lyrics = self.lyrics
+                
+                //5일차 구현
+                vc.handler = {(result) in
+                    
+                    let time = self.splashViewModel.searchLyrics(time: result)
+                    let cmtime = CMTime(seconds: Double(time), preferredTimescale: 1000)
+                    
+                    self.playerViewModel.seek(time: cmtime) { (_) in }
+                    
+                }
+                
+            }
+
+        }
+        
+    }
+    
     
     //2일차 구현
     override func viewDidLayoutSubviews() {
@@ -99,6 +128,13 @@ class PlayerViewController: UIViewController {
     
         }
         
+    }
+    
+    //5일차 구현
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        print("viewDidDisapper")
     }
     
     
@@ -135,10 +171,6 @@ class PlayerViewController: UIViewController {
         }
         
         
-    }
-    
-    @IBAction func seekBarAction(_ sender: UISlider) {
-
     }
     
 }
@@ -216,6 +248,22 @@ extension PlayerViewController {
             playerViewModel.plause()
             
         }
+            
+        }
+        
+    }
+    
+    
+    //segue로 데이터를 전송하는 것이랑 스토리 보드로 데이터 전송하는 것과 다르다..
+    //그리고 계속 다른 객체를 생성해서 보내주는 것이 아닌가 라는 의심이 든다.
+    //5일차 구현
+    func sendTimeToLVC(time : Double){
+        
+        let currentTime = Int(time)
+        
+        if let vc = self.storyboard?.instantiateViewController(withIdentifier: "LyricViewController") as? LyricViewController{
+            
+            vc.getData(input: currentTime)
             
         }
         

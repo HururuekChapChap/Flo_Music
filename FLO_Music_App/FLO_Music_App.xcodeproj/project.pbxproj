@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0809909A253FEFC6003E23D1 /* LyricViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08099099253FEFC6003E23D1 /* LyricViewController.swift */; };
+		0809909D253FFACC003E23D1 /* LyricTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0809909C253FFACC003E23D1 /* LyricTableViewCell.swift */; };
 		08D300F9253B1A7300071930 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D300F8253B1A7300071930 /* AppDelegate.swift */; };
 		08D300FB253B1A7300071930 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D300FA253B1A7300071930 /* SceneDelegate.swift */; };
 		08D30100253B1A7300071930 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 08D300FE253B1A7300071930 /* Main.storyboard */; };
@@ -20,6 +22,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		08099099253FEFC6003E23D1 /* LyricViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LyricViewController.swift; sourceTree = "<group>"; };
+		0809909C253FFACC003E23D1 /* LyricTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LyricTableViewCell.swift; sourceTree = "<group>"; };
 		08D300F5253B1A7300071930 /* FLO_Music_App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FLO_Music_App.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		08D300F8253B1A7300071930 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		08D300FA253B1A7300071930 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -83,6 +87,7 @@
 			children = (
 				08D30110253B1FDA00071930 /* PlayerViewController.swift */,
 				08D30114253B203200071930 /* SplashViewController.swift */,
+				08099099253FEFC6003E23D1 /* LyricViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -107,6 +112,7 @@
 			isa = PBXGroup;
 			children = (
 				08D30127253B5E3800071930 /* UIView+Extension.swift */,
+				0809909C253FFACC003E23D1 /* LyricTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -181,12 +187,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0809909D253FFACC003E23D1 /* LyricTableViewCell.swift in Sources */,
 				08D30128253B5E3800071930 /* UIView+Extension.swift in Sources */,
 				08D3011A253B27E100071930 /* ApiViewModel.swift in Sources */,
 				08D30111253B1FDA00071930 /* PlayerViewController.swift in Sources */,
 				08D300F9253B1A7300071930 /* AppDelegate.swift in Sources */,
 				08D300FB253B1A7300071930 /* SceneDelegate.swift in Sources */,
 				08D30130253C440800071930 /* PlayerViewModel.swift in Sources */,
+				0809909A253FEFC6003E23D1 /* LyricViewController.swift in Sources */,
 				08D30115253B203200071930 /* SplashViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
