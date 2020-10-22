@@ -232,7 +232,7 @@
                                             <rect key="frame" x="0.0" y="140.5" width="414" height="755.5"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <prototypes>
-                                                <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="LyricTableViewCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="LyricTableViewCell" rowHeight="80" id="G55-kG-opF" customClass="LyricTableViewCell" customModule="FLO_Music_App" customModuleProvider="target">
+                                                <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="LyricTableViewCell" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="LyricTableViewCell" rowHeight="80" id="G55-kG-opF" customClass="LyricTableViewCell" customModule="FLO_Music_App" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="28" width="414" height="80"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="G55-kG-opF" id="Jy7-Cj-7ri">
@@ -261,13 +261,32 @@
                                                 </tableViewCell>
                                             </prototypes>
                                         </tableView>
+                                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YQA-mk-nqC">
+                                            <rect key="frame" x="20" y="74" width="51" height="31"/>
+                                            <connections>
+                                                <action selector="switchOnOff:" destination="LSh-al-qSR" eventType="valueChanged" id="upD-LP-jA8"/>
+                                            </connections>
+                                        </switch>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2tb-fD-Slp">
+                                            <rect key="frame" x="186.5" y="69" width="41" height="41.5"/>
+                                            <state key="normal" image="playFill"/>
+                                            <connections>
+                                                <action selector="playBtn:" destination="LSh-al-qSR" eventType="touchUpInside" id="kFU-un-mor"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="haN-dj-bTK" firstAttribute="leading" secondItem="wJt-U3-HmT" secondAttribute="leading" id="1cJ-Sc-nPY"/>
                                         <constraint firstItem="Hib-BZ-pV7" firstAttribute="centerX" secondItem="wJt-U3-HmT" secondAttribute="centerX" multiplier="1.8" id="4t7-by-xSY"/>
+                                        <constraint firstItem="2tb-fD-Slp" firstAttribute="width" secondItem="Hib-BZ-pV7" secondAttribute="width" id="Dgo-Ju-ORL"/>
                                         <constraint firstItem="haN-dj-bTK" firstAttribute="top" secondItem="Hib-BZ-pV7" secondAttribute="bottom" constant="30" id="LyG-zV-a1b"/>
                                         <constraint firstAttribute="trailing" secondItem="haN-dj-bTK" secondAttribute="trailing" id="MBl-vZ-7ad"/>
+                                        <constraint firstItem="2tb-fD-Slp" firstAttribute="centerX" secondItem="wJt-U3-HmT" secondAttribute="centerX" id="NYT-Qi-V3z"/>
+                                        <constraint firstItem="YQA-mk-nqC" firstAttribute="centerY" secondItem="Hib-BZ-pV7" secondAttribute="centerY" id="cZj-Q3-wMX"/>
+                                        <constraint firstItem="YQA-mk-nqC" firstAttribute="leading" secondItem="wJt-U3-HmT" secondAttribute="leading" constant="20" id="mWK-G3-xHu"/>
+                                        <constraint firstItem="2tb-fD-Slp" firstAttribute="centerY" secondItem="Hib-BZ-pV7" secondAttribute="centerY" id="nE9-fi-AsG"/>
                                         <constraint firstAttribute="bottom" secondItem="haN-dj-bTK" secondAttribute="bottom" id="thT-bn-9Q5"/>
+                                        <constraint firstItem="2tb-fD-Slp" firstAttribute="height" secondItem="Hib-BZ-pV7" secondAttribute="height" id="z8f-2k-Gkj"/>
                                     </constraints>
                                 </view>
                                 <blurEffect style="regular"/>
@@ -287,6 +306,8 @@
                     <navigationItem key="navigationItem" id="LlK-Q5-1lE"/>
                     <connections>
                         <outlet property="lyricTableView" destination="haN-dj-bTK" id="Jqh-PY-ZxC"/>
+                        <outlet property="playerButton" destination="2tb-fD-Slp" id="lCr-GR-u62"/>
+                        <outlet property="toggleSwitch" destination="YQA-mk-nqC" id="Glu-5L-EwO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pW1-Kj-x85" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -299,6 +320,7 @@
         <image name="closed" width="256" height="256"/>
         <image name="lyrics" width="256" height="256"/>
         <image name="play.fill" catalog="system" width="116" height="128"/>
+        <image name="playFill" width="256" height="256"/>
         <systemColor name="systemPinkColor">
             <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

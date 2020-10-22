@@ -111,6 +111,18 @@ class PlayerViewController: UIViewController {
                     
                 }
                 
+                //6일차 구현
+                vc.playingHandler = { result in
+                    
+                    switch result {
+                    case true:
+                        self.changePlayBtnPlay()
+                    default:
+                        self.changePlayBtnPlause()
+                    }
+                    
+                }
+                
             }
 
         }
@@ -248,22 +260,6 @@ extension PlayerViewController {
             playerViewModel.plause()
             
         }
-            
-        }
-        
-    }
-    
-    
-    //segue로 데이터를 전송하는 것이랑 스토리 보드로 데이터 전송하는 것과 다르다..
-    //그리고 계속 다른 객체를 생성해서 보내주는 것이 아닌가 라는 의심이 든다.
-    //5일차 구현
-    func sendTimeToLVC(time : Double){
-        
-        let currentTime = Int(time)
-        
-        if let vc = self.storyboard?.instantiateViewController(withIdentifier: "LyricViewController") as? LyricViewController{
-            
-            vc.getData(input: currentTime)
             
         }
         

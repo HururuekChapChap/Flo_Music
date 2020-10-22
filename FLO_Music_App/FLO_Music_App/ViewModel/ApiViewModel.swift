@@ -177,8 +177,5 @@ class ApiViewModel {
         
     }
     
-
-    
-    
     
 }

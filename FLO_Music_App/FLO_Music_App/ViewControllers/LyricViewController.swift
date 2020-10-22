@@ -13,6 +13,9 @@ class LyricViewController: UIViewController {
 
     //5일차
     var handler : ((Int)->())?
+    
+    var playingHandler : ((Bool)->())?
+    
     var lyrics : [Int : String]?
     var stringLyrics : [(word :String, time : Int)] = []
     
@@ -21,17 +24,21 @@ class LyricViewController: UIViewController {
     var timeObserver : Any?
     
     var indexpath : IndexPath?
-    
     var isScrolling : Bool = false
     
-    @IBOutlet weak var lyricTableView: UITableView!
+    var firtViewLoad : Bool = true
     
+    @IBOutlet weak var lyricTableView: UITableView!
+    @IBOutlet weak var playerButton: UIButton!
+    @IBOutlet weak var toggleSwitch: UISwitch!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setdelegate()
         setLyricSorted()
+        firstViewLoad()
+        loadUISwitch()
         
         // Do any additional setup after loading the view.
     }
@@ -55,8 +62,7 @@ class LyricViewController: UIViewController {
             }
             
         }
-       
-        
+
         
     }
     
@@ -71,44 +77,31 @@ class LyricViewController: UIViewController {
         
     }
     
-    
-    
     //5일차
     @IBAction func closeBtn(_ sender: UIButton) {
                 
         dismiss(animated: true, completion: nil)
         
     }
+   
+    //6일차 구현
+    @IBAction func switchOnOff(_ sender: UISwitch) {
         
-    //사용하지 않음 - 5일차 헛수고
-    func getData(input : Int){
+        UserDefaults.standard.set(sender.isOn, forKey: "toggleSwitchData")
         
-        //다른 변수로 적용이 된다. 그러니깐 ViewdidLoad 시점의 생성 되는 변수가 아니라
-        //그전에 생성이 되서 생긴 것은 똑같지만 다르게 메모리에 생성이되어
-        //다른 녀석이 되었다. 그래서 지속적으로 false 값을 리턴한다....
-//        print(isViewControllerOpen)
-//        let temp = self.isViewControllerOpen
-//        print(temp)
-        
-//        if isViewControllerOpen {
-        
-        print(input)
+        if sender.isOn{
+            lyricTableView.isScrollEnabled = true
+        }
+        else{
+            lyricTableView.isScrollEnabled = false
+        }
         
         
-//            성공적으로 잘 작동한다.
-//            let indexpath = IndexPath(row: input, section: 0)
-//
-//        guard let test = lyricTableView else {
-//            print("no table View")
-//            return}
-//
-//            guard let table = test.cellForRow(at: indexpath) else {return}
-//
-//            guard let cell = table as? LyricTableViewCell else{return}
-//
-//            cell.updateLyricLable(word: String(input))
-            
-//        }
+    }
+    
+    @IBAction func playBtn(_ sender: UIButton) {
+        
+        checkisPlaying()
         
     }
     
@@ -142,19 +135,30 @@ extension LyricViewController : UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         // 버튼을 눌러서 토글이 켜져 있을 때만 선택 할 수 있도록 해야함.
+        //6일차 구현
+        if toggleSwitch.isOn {
         
-        //핸들러를 이용해서 데이터 재전송 backword
+        //5일차 구현 - 핸들러를 이용해서 데이터 재전송 backword
         handler?(stringLyrics[indexPath.row].time)
         
         lyricTableView.reloadData()
         self.indexpath = nil
+            
+        }
+        else{
+            dismiss(animated: true, completion: nil)
+        }
         
     }
     
+    //5일차 구현
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+                
             isScrolling = true
+
     }
-        
+    
+    //5일차 구현
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
             isScrolling = false
     }
@@ -254,6 +258,77 @@ extension LyricViewController {
         
         return end < 0 ? 0 : end
         
+    }
+    
+    //6일차 구현
+    func checkisPlaying(){
+        
+        //재생을 -> 멈춤
+        if playerViewModel.isPlaying() {
+            playingHandler?(false)
+            changePlayBtnPlause()
+            playerViewModel.plause()
+        }
+        //멈춤 -> 재생
+        else{
+            playingHandler?(true)
+            changePlayBtnPlay()
+            playerViewModel.play()
+        }
+        
+    }
+    
+    //6일차 구현
+    func firstViewLoad(){
+        
+        if playerViewModel.isPlaying() {
+            changePlayBtnPlay()
+        }
+        else{
+            changePlayBtnPlause()
+        }
+        
+        
+    }
+    
+    
+    //6일차 구현
+    func changePlayBtnPlause(){
+                
+        playerButton.isSelected  = false
+        
+        guard let image = UIImage(named: "playFill.png") else {
+                print("pause.png empyt")
+                return}
+            
+        playerButton.setImage(image, for: .normal)
+            
+        
+    }
+    
+    //6일차 구현
+    func changePlayBtnPlay(){
+        
+        playerButton.isSelected  = true
+        
+        playerButton.setImage(UIImage(named: "pause.png"), for: .selected)
+            
+    }
+    
+    //6일차 구현
+    func loadUISwitch(){
+        if let toggleSwitchData = UserDefaults.standard.value(forKey: "toggleSwitchData"){
+            
+            toggleSwitch.isOn = toggleSwitchData as! Bool
+            
+            if toggleSwitch.isOn {
+                lyricTableView.isScrollEnabled = true
+            }
+            else{
+                lyricTableView.isScrollEnabled = false
+            }
+            
+        }
     }
     
     
