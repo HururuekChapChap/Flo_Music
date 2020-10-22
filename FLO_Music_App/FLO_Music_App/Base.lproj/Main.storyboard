@@ -289,7 +289,7 @@
                                         <constraint firstItem="2tb-fD-Slp" firstAttribute="height" secondItem="Hib-BZ-pV7" secondAttribute="height" id="z8f-2k-Gkj"/>
                                     </constraints>
                                 </view>
-                                <blurEffect style="regular"/>
+                                <blurEffect style="light"/>
                             </visualEffectView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="2sc-eq-KgY"/>

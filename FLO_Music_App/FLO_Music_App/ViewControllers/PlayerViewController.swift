@@ -77,6 +77,12 @@ class PlayerViewController: UIViewController {
             print("URL is wrong")
         }
         
+        do {
+            try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default, options: [])
+        }
+        catch {
+            print("Setting category to AVAudioSessionCategoryPlayback failed.")
+        }
         
         //3일차 구현
         let timeSeek = CMTime(seconds: 1, preferredTimescale: 1000) // 0.1초
