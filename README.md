@@ -3,9 +3,8 @@
  
 # Result
 
-upload at (20.10.24)
-
-![Hnet-image](https://user-images.githubusercontent.com/57618897/97067566-7510b000-15f9-11eb-995a-1938da7e2a3a.gif)
+<p align="center"><img src="https://user-images.githubusercontent.com/57618897/97067566-7510b000-15f9-11eb-995a-1938da7e2a3a.gif"></p>
+<p align="center">uplaod at 2020.10.24</p>
 
 
 # Development History
