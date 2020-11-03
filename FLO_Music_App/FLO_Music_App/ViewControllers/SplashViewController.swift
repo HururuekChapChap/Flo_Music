@@ -23,7 +23,6 @@ class SplashViewController: UIViewController {
             
                 if #available(iOS 13.0, *) {
                     
-                    
                     guard let playerVC = self.storyboard?.instantiateViewController(identifier: "PlayerViewController") else {return}
                     
                     playerVC.modalPresentationStyle = .overFullScreen

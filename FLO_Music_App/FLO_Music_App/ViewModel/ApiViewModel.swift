@@ -31,6 +31,7 @@ class ApiViewModel {
     //4일차 구현
     var search : [Int] = []
     
+    //return URL
     public func returnURL(url : String) -> URL?{
         
         guard let urlComponent = URLComponents(string: url) else {return nil}
@@ -38,6 +39,7 @@ class ApiViewModel {
         return urlComponent.url
     }
     
+    //Parsing Music Info which is JSON Type
     public func returnMusicinfo(_ url : URL , completeHandler : @escaping(Result<musicInfo,APIERROR>) -> ()) {
         
         let config = URLSessionConfiguration.default
@@ -74,6 +76,7 @@ class ApiViewModel {
         
     }
     
+    //Get Image Data
     public func getImage(url : URL , completeHandler : @escaping (Result<Data,APIERROR>) -> ()){
         
         DispatchQueue.global().async {
@@ -93,6 +96,7 @@ class ApiViewModel {
     }
     
     //4일차 구현
+    //정규식으로 String Parsing
     func returnStringByRex(pattern : String , word : String) -> [String] {
         
         do {
@@ -118,6 +122,7 @@ class ApiViewModel {
     }
     
     //4일차 구현
+    //가사와 시간 분리 후 Dictionary에 저장 for 빠른 가사 탐색
     func getlyrics(lyrics : String , completeHandler : @escaping([Int: String])->()){
         
         let list = lyrics.components(separatedBy: "\n")
@@ -152,6 +157,7 @@ class ApiViewModel {
     }
     
     //4일차 구현
+    //가사 탐색
     func searchLyrics(time : Int) -> Int{
         
         var start = 0
