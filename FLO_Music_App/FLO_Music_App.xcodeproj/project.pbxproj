@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0808A65A255904EF006FEF62 /* FLO_Music_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0808A659255904EF006FEF62 /* FLO_Music_AppTests.swift */; };
 		0809909A253FEFC6003E23D1 /* LyricViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08099099253FEFC6003E23D1 /* LyricViewController.swift */; };
 		0809909D253FFACC003E23D1 /* LyricTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0809909C253FFACC003E23D1 /* LyricTableViewCell.swift */; };
 		08D300F9253B1A7300071930 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D300F8253B1A7300071930 /* AppDelegate.swift */; };
@@ -21,7 +22,20 @@
 		08D30130253C440800071930 /* PlayerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D3012F253C440800071930 /* PlayerViewModel.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		0808A65C255904EF006FEF62 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 08D300ED253B1A7300071930 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 08D300F4253B1A7300071930;
+			remoteInfo = FLO_Music_App;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		0808A657255904EF006FEF62 /* FLO_Music_AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FLO_Music_AppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		0808A659255904EF006FEF62 /* FLO_Music_AppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FLO_Music_AppTests.swift; sourceTree = "<group>"; };
+		0808A65B255904EF006FEF62 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		08099099253FEFC6003E23D1 /* LyricViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LyricViewController.swift; sourceTree = "<group>"; };
 		0809909C253FFACC003E23D1 /* LyricTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LyricTableViewCell.swift; sourceTree = "<group>"; };
 		08D300F5253B1A7300071930 /* FLO_Music_App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FLO_Music_App.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -39,6 +53,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		0808A654255904EF006FEF62 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		08D300F2253B1A7300071930 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -49,10 +70,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0808A658255904EF006FEF62 /* FLO_Music_AppTests */ = {
+			isa = PBXGroup;
+			children = (
+				0808A659255904EF006FEF62 /* FLO_Music_AppTests.swift */,
+				0808A65B255904EF006FEF62 /* Info.plist */,
+			);
+			path = FLO_Music_AppTests;
+			sourceTree = "<group>";
+		};
 		08D300EC253B1A7300071930 = {
 			isa = PBXGroup;
 			children = (
 				08D300F7253B1A7300071930 /* FLO_Music_App */,
+				0808A658255904EF006FEF62 /* FLO_Music_AppTests */,
 				08D300F6253B1A7300071930 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -61,6 +92,7 @@
 			isa = PBXGroup;
 			children = (
 				08D300F5253B1A7300071930 /* FLO_Music_App.app */,
+				0808A657255904EF006FEF62 /* FLO_Music_AppTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -120,6 +152,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		0808A656255904EF006FEF62 /* FLO_Music_AppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0808A660255904EF006FEF62 /* Build configuration list for PBXNativeTarget "FLO_Music_AppTests" */;
+			buildPhases = (
+				0808A653255904EF006FEF62 /* Sources */,
+				0808A654255904EF006FEF62 /* Frameworks */,
+				0808A655255904EF006FEF62 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0808A65D255904EF006FEF62 /* PBXTargetDependency */,
+			);
+			name = FLO_Music_AppTests;
+			productName = FLO_Music_AppTests;
+			productReference = 0808A657255904EF006FEF62 /* FLO_Music_AppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		08D300F4253B1A7300071930 /* FLO_Music_App */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 08D30109253B1A7500071930 /* Build configuration list for PBXNativeTarget "FLO_Music_App" */;
@@ -146,6 +196,10 @@
 				LastSwiftUpdateCheck = 1200;
 				LastUpgradeCheck = 1200;
 				TargetAttributes = {
+					0808A656255904EF006FEF62 = {
+						CreatedOnToolsVersion = 12.0.1;
+						TestTargetID = 08D300F4253B1A7300071930;
+					};
 					08D300F4253B1A7300071930 = {
 						CreatedOnToolsVersion = 12.0.1;
 					};
@@ -165,11 +219,19 @@
 			projectRoot = "";
 			targets = (
 				08D300F4253B1A7300071930 /* FLO_Music_App */,
+				0808A656255904EF006FEF62 /* FLO_Music_AppTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		0808A655255904EF006FEF62 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		08D300F3253B1A7300071930 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -183,6 +245,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		0808A653255904EF006FEF62 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0808A65A255904EF006FEF62 /* FLO_Music_AppTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		08D300F1253B1A7300071930 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -200,6 +270,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		0808A65D255904EF006FEF62 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 08D300F4253B1A7300071930 /* FLO_Music_App */;
+			targetProxy = 0808A65C255904EF006FEF62 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		08D300FE253B1A7300071930 /* Main.storyboard */ = {
@@ -221,6 +299,44 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		0808A65E255904EF006FEF62 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = FLO_Music_AppTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "tae-soo.FLO-Music-AppTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FLO_Music_App.app/FLO_Music_App";
+			};
+			name = Debug;
+		};
+		0808A65F255904EF006FEF62 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = FLO_Music_AppTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "tae-soo.FLO-Music-AppTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FLO_Music_App.app/FLO_Music_App";
+			};
+			name = Release;
+		};
 		08D30107253B1A7500071930 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -380,6 +496,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		0808A660255904EF006FEF62 /* Build configuration list for PBXNativeTarget "FLO_Music_AppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0808A65E255904EF006FEF62 /* Debug */,
+				0808A65F255904EF006FEF62 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		08D300F0253B1A7300071930 /* Build configuration list for PBXProject "FLO_Music_App" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

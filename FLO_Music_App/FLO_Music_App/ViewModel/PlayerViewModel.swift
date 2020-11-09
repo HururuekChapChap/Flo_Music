@@ -34,11 +34,13 @@ class PlayerViewModel {
         return player.rate == 0 ? false : true
     }
     
+    // 재생 음악 변경
     func replaceCurrentItem(with item: AVPlayerItem?){
         player.replaceCurrentItem(with: item)
     }
     
     //4일차 구현
+    //음악 재생 시간 변경
     func seek(time : CMTime , completionHandler : @escaping(Bool) -> ()){
 
 //            self.player.seek(to: time)
@@ -47,6 +49,7 @@ class PlayerViewModel {
     }
     
     //5일차 구현
+    //mainQueue에서 현재 음악 재생시간을 추적
     func addPeriodicTimeObserver(interval: CMTime, queue: DispatchQueue?, using : @escaping (CMTime) -> Void) -> Any{
         self.player.addPeriodicTimeObserver(forInterval: interval, queue: queue, using: using)
     }
