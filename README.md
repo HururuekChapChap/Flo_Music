@@ -29,6 +29,8 @@
 * Sixth Commit (20.10.22) - https://hururuek-chapchap.tistory.com/136
 
 
+* Seventh Commit (20.11.09) - https://hururuek-chapchap.tistory.com/144
+
 
 # Used Skills
 
@@ -42,3 +44,4 @@
 
 + DesignPattern - MVVM
 
++ Unit Test - Not professional, but for practice 
